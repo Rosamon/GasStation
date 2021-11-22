@@ -19,4 +19,10 @@
 #ifndef Str
 #define Str std::string
 #endif
-// ƒл€ простоты объ€влени€ строк. ѕоследн€€ замена.
+// ƒл€ простоты объ€влени€ строк. 
+#ifndef pass
+#define pass(x) std::cout << std::setw(x)
+#endif
+// ƒл€ форматировани€ вывода
+#include <iomanip>
+//22.11

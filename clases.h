@@ -10,6 +10,8 @@ public:
 	~AutoExample();
 	int GetDifference();//Возвращает разницу купли/продажи
 	int SetSellCost(int Cost);// Устанавливает стоимость проданного авто, можно купить лишь одно авто
+	Str GetBrand() { return Brand; };// Получить марку
+	Str GetSeries() { return Series; };// Получить серию
 private:
 	Str Brand;// Мрака
 	Str Series;// серия, может быть как цифрой так и названием 
@@ -28,6 +30,7 @@ public:
 	~AutoList();
 	int insertAuto(AutoExample*);// Позволяет добавть авто в список
 	int ShowAutoList();// Показыает список авто
+	int ShowAnAutoCost(Str, Str);// Разница отдельной марки
 private:
 	std::list <AutoExample*> PtrAutoList; // указатели на класс AutoExample
 	std::list <AutoExample*>::iterator iter; //итератор

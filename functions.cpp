@@ -5,9 +5,11 @@
 void MyMainMenu(int mode = 0, int time_out = 1)
 {
     int numb = 0;
-    out "Welcome to AutoGasStation app. Develop for DIRVE-MOTORS.\n\n";
+    out "Welcome to AutoGasStation app. Develop for DIRVE-MOTORS.\n";
+    out Str(40, '-') <<"\n\n";
     out "Here you can make a report about: \n1. Car sale\n2. Sale of auto parts";
     out "\n3. Gas station\n";
+    out Str(40, '-') << "\n\n";
     if (mode)
     {
         if (time_out == 4)
@@ -38,6 +40,8 @@ int ChooseMenu(int numb, int time_out)
     {
     case 1:
         out "\nYour numb is 1 - " << numb << "\n";
+        pass(10);
+        out "|123|456789";
         break;
     case 2:
         out "\nYour numb is 2 - " << numb << "\n";
@@ -103,8 +107,34 @@ AutoList::~AutoList()
 
 }
 
-//Вставка в список нового авто
+//Вставка в список нового авто, в качестве аргумента принимает класс
 int AutoList::insertAuto(AutoExample* PtrAuto)
 {
     PtrAutoList.push_back(PtrAuto); // вставка нового авто в список
+    return 0;
 }
+
+// Выводит на экран список авто в формате Марка серия: количество
+int AutoList::ShowAutoList()
+{
+   ///
+   return 0;
+}
+
+//возвращает сумму доходов от продажи авто с учетом затраты, если авто не найдено -"-1"
+int AutoList::ShowAnAutoCost(Str Brand, Str Series)
+{
+    iter = PtrAutoList.begin();
+    while (iter != PtrAutoList.end())
+    { // поиск авто в списке 
+        if (Brand == ((*iter)->GetBrand()) && Series == (*iter)->GetSeries()) // сравниваем по именам и
+        {
+            // если получившаяся пара совпадает - значит, 
+            //мы нашли запись об авто в списке, в этом случае 
+            return (*iter)->GetDifference(); // возвращаем разницу купли/продажи
+        }
+        iter++;
+    }
+    return -1; // если нет - возвращаем -1
+}
+
