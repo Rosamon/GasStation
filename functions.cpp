@@ -7,7 +7,7 @@ void MyMainMenu(int mode = 0, int time_out = 1)
     int numb = 0;
     out "Welcome to AutoGasStation app. Develop for DIRVE-MOTORS.\n";
     out Str(40, '-') <<"\n\n";
-    out "Here you can make a report about: \n1. Car sale\n2. Sale of auto parts";
+    out "Here you can work with: \n1. Car sale\n2. Sale of auto parts";
     out "\n3. Gas station\n";
     out Str(40, '-') << "\n\n";
     if (mode)
@@ -36,13 +36,17 @@ void MyMainMenu(int mode = 0, int time_out = 1)
 //Функция в зависимости от принимаемых значений выводит менюю для взаимодействия с пользователем
 int ChooseMenu(int numb, int time_out)
 {
+    system("cls"); // очистка экрана! Другой вариант не рассматриваеться
     switch (numb)
     {
     case 1:
-        out "\nYour numb is 1 - " << numb << "\n";
-        pass(10);
-        out "|123|456789";
+    {   out "Now you can only add couple of cars\n";
+        AutoList* ptrAutoList = new AutoList();
+        AutoScreen* ptrAutoScreen = new AutoScreen(ptrAutoList);
+        ptrAutoScreen->SetAuto();
+        delete ptrAutoScreen;
         break;
+    }
     case 2:
         out "\nYour numb is 2 - " << numb << "\n";
         break;
@@ -50,7 +54,7 @@ int ChooseMenu(int numb, int time_out)
         out "\nYour numb is 3 - " << numb << "\n";
         break;
     default:
-        system("cls"); // очистка экрана! Другой вариант не рассматриваеться
+        
         MyMainMenu(2, ++time_out); // вызов функции главного меню с выводом ошибки, для предотвращения перегрузки будет использоваться второй параметр
         //обозначающий количество входов в функцию. Максимум 5.
         break;
@@ -117,7 +121,30 @@ int AutoList::insertAuto(AutoExample* PtrAuto)
 // Выводит на экран список авто в формате Марка серия: количество
 int AutoList::ShowAutoList()
 {
-   ///
+    pass(10);
+    out "Brand ";
+    pass(10);
+    out "| Series ";
+    pass(10);
+    out "| Amount";
+    out"\n";
+    if (PtrAutoList.empty()) // если список жильцов пуст
+        out "Cars is out!\n"; // выводим запись, что он пуст)
+    else
+    {
+        iter = PtrAutoList.begin();
+        while (iter != PtrAutoList.end()) // вывод пока не конец
+        {
+            pass(10);
+            out (*iter)->GetBrand(); 
+            pass(10);
+            out (*iter)->GetSeries();
+            pass(10);
+            out (*iter)->GetNumberAuto();//количество на складе
+            *iter++;
+            out"\n";
+        }
+    }
    return 0;
 }
 
@@ -127,7 +154,7 @@ int AutoList::ShowAnAutoCost(Str Brand, Str Series)
     iter = PtrAutoList.begin();
     while (iter != PtrAutoList.end())
     { // поиск авто в списке 
-        if (Brand == ((*iter)->GetBrand()) && Series == (*iter)->GetSeries()) // сравниваем по именам и
+        if (Brand == ((*iter)->GetBrand()) && Series == (*iter)->GetSeries()) // сравниваем по марке и серии
         {
             // если получившаяся пара совпадает - значит, 
             //мы нашли запись об авто в списке, в этом случае 
@@ -137,4 +164,34 @@ int AutoList::ShowAnAutoCost(Str Brand, Str Series)
     }
     return -1; // если нет - возвращаем -1
 }
+
+// Класс AutoScreen
+
+// интерфейс записи в список
+void AutoScreen::SetAuto() 
+{
+    
+    //Str BufStr;
+    //char temp[21];
+
+    out "Enter brand of a car:\n>>> ";
+    input Brand;
+    out "\n";
+    //std::cin.get(temp, 20, '\n');
+    //std::cin.ignore(20, '\n'); //число пропускаемых символов и символ разделения
+    //BufStr = temp;
+    out "Enter series of a car\n>>>";
+    input Series;
+    out "\n";
+    out "Enter number of purchased cars\n>>>";
+    input NumberOfBought;
+    out "\n";
+    out "Enter cost of purchased cars\n>>>";
+    input Cost;
+    AutoExample* ptrAuto = new AutoExample(Brand, Series, NumberOfBought, Cost);// создать экземпляр авто
+    PtrAutoList->insertAuto(ptrAuto);//занести в список
+    PtrAutoList->ShowAutoList();
+}
+
+
 

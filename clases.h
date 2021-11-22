@@ -6,12 +6,13 @@
 class AutoExample
 {
 public:
-	AutoExample(Str BrandBought, Str SeriesBought, short Number, int Cost);
+	AutoExample(Str BrandBought, Str SeriesBought, short Number, int Cost);//Konstructor
 	~AutoExample();
 	int GetDifference();//Возвращает разницу купли/продажи
 	int SetSellCost(int Cost);// Устанавливает стоимость проданного авто, можно купить лишь одно авто
 	Str GetBrand() { return Brand; };// Получить марку
 	Str GetSeries() { return Series; };// Получить серию
+	int GetNumberAuto() { return NumberOfBought - NumberOfSold; };//количество авто на складе
 private:
 	Str Brand;// Мрака
 	Str Series;// серия, может быть как цифрой так и названием 
@@ -36,5 +37,18 @@ private:
 	std::list <AutoExample*>::iterator iter; //итератор
 };
 
-
+//
+class AutoScreen
+{
+public:
+	AutoScreen(AutoList* ptrAL):PtrAutoList(ptrAL) {};
+	//~AutoScreen();
+	void SetAuto();
+private:
+	AutoList* PtrAutoList;
+	Str Brand;
+	Str Series;
+	short NumberOfBought;
+	int Cost;
+};
 //22.11
