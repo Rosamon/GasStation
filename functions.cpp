@@ -10,6 +10,10 @@ void MyMainMenu(int mode = 0, int time_out = 1)
     out "\n3. Gas station\n";
     if (mode)
     {
+        if (time_out == 4)
+        {
+            out"It's last try. Please don't be angry\n\n";
+        }
         if (time_out == 5)
         {
             out "Your limit is out. Maybe it's our mistake. Please try agani later.\n\n";
