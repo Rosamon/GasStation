@@ -1,5 +1,5 @@
 #pragma once
-#include "inclusions.h"
+#include "clases.h"
 
 // √лавное меню
 void MyMainMenu(int mode = 0, int time_out = 1)
@@ -53,4 +53,58 @@ int ChooseMenu(int numb, int time_out)
     }
 
     return 0;
+}
+
+//далее методы классов
+
+//класс AutoExamples
+
+// онструктор задает значени€ марки, серии, количество и стоимость купленных авто
+AutoExample::AutoExample(Str BrandBought, Str SeriesBought, short Number, int Cost) :
+    Brand(BrandBought), Series(SeriesBought), NumberOfBought(Number), BuyCost(Cost)
+{
+    NumberOfSold = 0;
+    SellCost = 0;
+}
+
+//ƒеструктор. «десь дл€ галочки)
+AutoExample::~AutoExample()
+{
+}
+//¬озвращает разницу купли / продажи, ѕроданные -  упленные
+int AutoExample::GetDifference()
+{
+    return SellCost - BuyCost;
+}
+
+// ”станавливает стоимость проданного авто, можно купить лишь одно авто
+int AutoExample::SetSellCost(int Cost)
+{
+    if (NumberOfBought >= NumberOfSold)
+    {
+        return -1;// ќшибка, св€занна€ с отсутствием авто на базе
+    }
+    SellCost += Cost;
+    NumberOfSold++;// +1 проданный автомобиль
+    return 0;
+}
+
+//  ласс AutoList
+
+// деструктор, удал€ет весь список авто
+AutoList::~AutoList()
+{
+    while (!PtrAutoList.empty()) // удаление всех auto
+    { // удаление указателей из контейнера
+        iter = PtrAutoList.begin();
+        delete* iter;
+        PtrAutoList.erase(iter);
+    }
+
+}
+
+//¬ставка в список нового авто
+int AutoList::insertAuto(AutoExample* PtrAuto)
+{
+    PtrAutoList.push_back(PtrAuto); // вставка нового авто в список
 }

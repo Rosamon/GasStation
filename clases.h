@@ -20,4 +20,18 @@ private:
 	int SellCost;// сумма вырученная с продажи всех авто этой марки и серии
 };
 
+// Класс содержит указатели на AutoExample, создает список из элементов класса AutoExample
+class AutoList
+{
+public:
+	//AutoList();
+	~AutoList();
+	int insertAuto(AutoExample*);// Позволяет добавть авто в список
+	int ShowAutoList();// Показыает список авто
+private:
+	std::list <AutoExample*> PtrAutoList; // указатели на класс AutoExample
+	std::list <AutoExample*>::iterator iter; //итератор
+};
 
+
+//22.11
