@@ -1,7 +1,7 @@
 #pragma once
 #include "clases.h"
 
-// Ãëàâíîå ìåíþ
+// Ð“Ð»Ð°Ð²Ð½Ð¾Ðµ Ð¼ÐµÐ½ÑŽ
 void MyMainMenu(int mode = 0, int time_out = 1)
 {
     int numb = 0;
@@ -19,7 +19,7 @@ void MyMainMenu(int mode = 0, int time_out = 1)
         if (time_out == 5)
         {
             out "Your limit is out. Maybe it's our mistake. Please try agani later.\n\n";
-            return;//âûõîä èç ïðîãðàìû â ñëó÷àå ïðèâûøåíèÿ êîëè÷åñòâà âõîæäåíèé
+            return;//Ð²Ñ‹Ñ…Ð¾Ð´ Ð¸Ð· Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ñ‹ Ð² ÑÐ»ÑƒÑ‡Ð°Ðµ Ð¿Ñ€Ð¸Ð²Ñ‹ÑˆÐµÐ½Ð¸Ñ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð° Ð²Ñ…Ð¾Ð¶Ð´ÐµÐ½Ð¸Ð¹
         }
         out "You wrote a WRONG number! Please write again\n\n>>> ";
     }
@@ -33,10 +33,10 @@ void MyMainMenu(int mode = 0, int time_out = 1)
 
 }
 
-//Ôóíêöèÿ â çàâèñèìîñòè îò ïðèíèìàåìûõ çíà÷åíèé âûâîäèò ìåíþþ äëÿ âçàèìîäåéñòâèÿ ñ ïîëüçîâàòåëåì
+//Ð¤ÑƒÐ½ÐºÑ†Ð¸Ñ Ð² Ð·Ð°Ð²Ð¸ÑÐ¸Ð¼Ð¾ÑÑ‚Ð¸ Ð¾Ñ‚ Ð¿Ñ€Ð¸Ð½Ð¸Ð¼Ð°ÐµÐ¼Ñ‹Ñ… Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ð¹ Ð²Ñ‹Ð²Ð¾Ð´Ð¸Ñ‚ Ð¼ÐµÐ½ÑŽÑŽ Ð´Ð»Ñ Ð²Ð·Ð°Ð¸Ð¼Ð¾Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ñ Ñ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÐµÐ¼
 int ChooseMenu(int numb, int time_out)
 {
-    system("cls"); // î÷èñòêà ýêðàíà! Äðóãîé âàðèàíò íå ðàññìàòðèâàåòüñÿ
+    system("cls"); // Ð¾Ñ‡Ð¸ÑÑ‚ÐºÐ° ÑÐºÑ€Ð°Ð½Ð°! Ð”Ñ€ÑƒÐ³Ð¾Ð¹ Ð²Ð°Ñ€Ð¸Ð°Ð½Ñ‚ Ð½Ðµ Ñ€Ð°ÑÑÐ¼Ð°Ñ‚Ñ€Ð¸Ð²Ð°ÐµÑ‚ÑŒÑÑ
     switch (numb)
     {
     case 1:
@@ -55,19 +55,19 @@ int ChooseMenu(int numb, int time_out)
         break;
     default:
         
-        MyMainMenu(2, ++time_out); // âûçîâ ôóíêöèè ãëàâíîãî ìåíþ ñ âûâîäîì îøèáêè, äëÿ ïðåäîòâðàùåíèÿ ïåðåãðóçêè áóäåò èñïîëüçîâàòüñÿ âòîðîé ïàðàìåòð
-        //îáîçíà÷àþùèé êîëè÷åñòâî âõîäîâ â ôóíêöèþ. Ìàêñèìóì 5.
+        MyMainMenu(2, ++time_out); // Ð²Ñ‹Ð·Ð¾Ð² Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¸ Ð³Ð»Ð°Ð²Ð½Ð¾Ð³Ð¾ Ð¼ÐµÐ½ÑŽ Ñ Ð²Ñ‹Ð²Ð¾Ð´Ð¾Ð¼ Ð¾ÑˆÐ¸Ð±ÐºÐ¸, Ð´Ð»Ñ Ð¿Ñ€ÐµÐ´Ð¾Ñ‚Ð²Ñ€Ð°Ñ‰ÐµÐ½Ð¸Ñ Ð¿ÐµÑ€ÐµÐ³Ñ€ÑƒÐ·ÐºÐ¸ Ð±ÑƒÐ´ÐµÑ‚ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒÑÑ Ð²Ñ‚Ð¾Ñ€Ð¾Ð¹ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€
+        //Ð¾Ð±Ð¾Ð·Ð½Ð°Ñ‡Ð°ÑŽÑ‰Ð¸Ð¹ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð²Ñ…Ð¾Ð´Ð¾Ð² Ð² Ñ„ÑƒÐ½ÐºÑ†Ð¸ÑŽ. ÐœÐ°ÐºÑÐ¸Ð¼ÑƒÐ¼ 5.
         break;
     }
 
     return 0;
 }
 
-//äàëåå ìåòîäû êëàññîâ
+//Ð´Ð°Ð»ÐµÐµ Ð¼ÐµÑ‚Ð¾Ð´Ñ‹ ÐºÐ»Ð°ÑÑÐ¾Ð²
 
-//êëàññ AutoExamples
+//ÐºÐ»Ð°ÑÑ AutoExamples
 
-//Êîíñòðóêòîð çàäàåò çíà÷åíèÿ ìàðêè, ñåðèè, êîëè÷åñòâî è ñòîèìîñòü êóïëåííûõ àâòî
+//ÐšÐ¾Ð½ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€ Ð·Ð°Ð´Ð°ÐµÑ‚ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ Ð¼Ð°Ñ€ÐºÐ¸, ÑÐµÑ€Ð¸Ð¸, ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð¸ ÑÑ‚Ð¾Ð¸Ð¼Ð¾ÑÑ‚ÑŒ ÐºÑƒÐ¿Ð»ÐµÐ½Ð½Ñ‹Ñ… Ð°Ð²Ñ‚Ð¾
 AutoExample::AutoExample(Str BrandBought, Str SeriesBought, short Number, int Cost) :
     Brand(BrandBought), Series(SeriesBought), NumberOfBought(Number), BuyCost(Cost)
 {
@@ -75,35 +75,35 @@ AutoExample::AutoExample(Str BrandBought, Str SeriesBought, short Number, int Co
     SellCost = 0;
 }
 
-//Äåñòðóêòîð. Çäåñü äëÿ ãàëî÷êè)
+//Ð”ÐµÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€. Ð—Ð´ÐµÑÑŒ Ð´Ð»Ñ Ð³Ð°Ð»Ð¾Ñ‡ÐºÐ¸)
 AutoExample::~AutoExample()
 {
 }
-//Âîçâðàùàåò ðàçíèöó êóïëè / ïðîäàæè, Ïðîäàííûå - Êóïëåííûå
+//Ð’Ð¾Ð·Ð²Ñ€Ð°Ñ‰Ð°ÐµÑ‚ Ñ€Ð°Ð·Ð½Ð¸Ñ†Ñƒ ÐºÑƒÐ¿Ð»Ð¸ / Ð¿Ñ€Ð¾Ð´Ð°Ð¶Ð¸, ÐŸÑ€Ð¾Ð´Ð°Ð½Ð½Ñ‹Ðµ - ÐšÑƒÐ¿Ð»ÐµÐ½Ð½Ñ‹Ðµ
 int AutoExample::GetDifference()
 {
     return SellCost - BuyCost;
 }
 
-// Óñòàíàâëèâàåò ñòîèìîñòü ïðîäàííîãî àâòî, ìîæíî êóïèòü ëèøü îäíî àâòî
+// Ð£ÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÐµÑ‚ ÑÑ‚Ð¾Ð¸Ð¼Ð¾ÑÑ‚ÑŒ Ð¿Ñ€Ð¾Ð´Ð°Ð½Ð½Ð¾Ð³Ð¾ Ð°Ð²Ñ‚Ð¾, Ð¼Ð¾Ð¶Ð½Ð¾ ÐºÑƒÐ¿Ð¸Ñ‚ÑŒ Ð»Ð¸ÑˆÑŒ Ð¾Ð´Ð½Ð¾ Ð°Ð²Ñ‚Ð¾
 int AutoExample::SetSellCost(int Cost)
 {
     if (NumberOfBought >= NumberOfSold)
     {
-        return -1;// Îøèáêà, ñâÿçàííàÿ ñ îòñóòñòâèåì àâòî íà áàçå
+        return -1;// ÐžÑˆÐ¸Ð±ÐºÐ°, ÑÐ²ÑÐ·Ð°Ð½Ð½Ð°Ñ Ñ Ð¾Ñ‚ÑÑƒÑ‚ÑÑ‚Ð²Ð¸ÐµÐ¼ Ð°Ð²Ñ‚Ð¾ Ð½Ð° Ð±Ð°Ð·Ðµ
     }
     SellCost += Cost;
-    NumberOfSold++;// +1 ïðîäàííûé àâòîìîáèëü
+    NumberOfSold++;// +1 Ð¿Ñ€Ð¾Ð´Ð°Ð½Ð½Ñ‹Ð¹ Ð°Ð²Ñ‚Ð¾Ð¼Ð¾Ð±Ð¸Ð»ÑŒ
     return 0;
 }
 
-// Êëàññ AutoList
+// ÐšÐ»Ð°ÑÑ AutoList
 
-// äåñòðóêòîð, óäàëÿåò âåñü ñïèñîê àâòî
+// Ð´ÐµÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€, ÑƒÐ´Ð°Ð»ÑÐµÑ‚ Ð²ÐµÑÑŒ ÑÐ¿Ð¸ÑÐ¾Ðº Ð°Ð²Ñ‚Ð¾
 AutoList::~AutoList()
 {
-    while (!PtrAutoList.empty()) // óäàëåíèå âñåõ auto
-    { // óäàëåíèå óêàçàòåëåé èç êîíòåéíåðà
+    while (!PtrAutoList.empty()) // ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ðµ Ð²ÑÐµÑ… auto
+    { // ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ðµ ÑƒÐºÐ°Ð·Ð°Ñ‚ÐµÐ»ÐµÐ¹ Ð¸Ð· ÐºÐ¾Ð½Ñ‚ÐµÐ¹Ð½ÐµÑ€Ð°
         iter = PtrAutoList.begin();
         delete* iter;
         PtrAutoList.erase(iter);
@@ -111,14 +111,14 @@ AutoList::~AutoList()
 
 }
 
-//Âñòàâêà â ñïèñîê íîâîãî àâòî, â êà÷åñòâå àðãóìåíòà ïðèíèìàåò êëàññ
+//Ð’ÑÑ‚Ð°Ð²ÐºÐ° Ð² ÑÐ¿Ð¸ÑÐ¾Ðº Ð½Ð¾Ð²Ð¾Ð³Ð¾ Ð°Ð²Ñ‚Ð¾, Ð² ÐºÐ°Ñ‡ÐµÑÑ‚Ð²Ðµ Ð°Ñ€Ð³ÑƒÐ¼ÐµÐ½Ñ‚Ð° Ð¿Ñ€Ð¸Ð½Ð¸Ð¼Ð°ÐµÑ‚ ÐºÐ»Ð°ÑÑ
 int AutoList::insertAuto(AutoExample* PtrAuto)
 {
-    PtrAutoList.push_back(PtrAuto); // âñòàâêà íîâîãî àâòî â ñïèñîê
+    PtrAutoList.push_back(PtrAuto); // Ð²ÑÑ‚Ð°Ð²ÐºÐ° Ð½Ð¾Ð²Ð¾Ð³Ð¾ Ð°Ð²Ñ‚Ð¾ Ð² ÑÐ¿Ð¸ÑÐ¾Ðº
     return 0;
 }
 
-// Âûâîäèò íà ýêðàí ñïèñîê àâòî â ôîðìàòå Ìàðêà ñåðèÿ: êîëè÷åñòâî
+// Ð’Ñ‹Ð²Ð¾Ð´Ð¸Ñ‚ Ð½Ð° ÑÐºÑ€Ð°Ð½ ÑÐ¿Ð¸ÑÐ¾Ðº Ð°Ð²Ñ‚Ð¾ Ð² Ñ„Ð¾Ñ€Ð¼Ð°Ñ‚Ðµ ÐœÐ°Ñ€ÐºÐ° ÑÐµÑ€Ð¸Ñ: ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾
 int AutoList::ShowAutoList()
 {
     pass(10);
@@ -128,19 +128,19 @@ int AutoList::ShowAutoList()
     pass(10);
     out "| Amount";
     out"\n";
-    if (PtrAutoList.empty()) // åñëè ñïèñîê æèëüöîâ ïóñò
-        out "Cars is out!\n"; // âûâîäèì çàïèñü, ÷òî îí ïóñò)
+    if (PtrAutoList.empty()) // ÐµÑÐ»Ð¸ ÑÐ¿Ð¸ÑÐ¾Ðº Ð¶Ð¸Ð»ÑŒÑ†Ð¾Ð² Ð¿ÑƒÑÑ‚
+        out "Cars is out!\n"; // Ð²Ñ‹Ð²Ð¾Ð´Ð¸Ð¼ Ð·Ð°Ð¿Ð¸ÑÑŒ, Ñ‡Ñ‚Ð¾ Ð¾Ð½ Ð¿ÑƒÑÑ‚)
     else
     {
         iter = PtrAutoList.begin();
-        while (iter != PtrAutoList.end()) // âûâîä ïîêà íå êîíåö
+        while (iter != PtrAutoList.end()) // Ð²Ñ‹Ð²Ð¾Ð´ Ð¿Ð¾ÐºÐ° Ð½Ðµ ÐºÐ¾Ð½ÐµÑ†
         {
             pass(10);
             out (*iter)->GetBrand(); 
             pass(10);
             out (*iter)->GetSeries();
             pass(10);
-            out (*iter)->GetNumberAuto();//êîëè÷åñòâî íà ñêëàäå
+            out (*iter)->GetNumberAuto();//ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð½Ð° ÑÐºÐ»Ð°Ð´Ðµ
             *iter++;
             out"\n";
         }
@@ -148,26 +148,26 @@ int AutoList::ShowAutoList()
    return 0;
 }
 
-//âîçâðàùàåò ñóììó äîõîäîâ îò ïðîäàæè àâòî ñ ó÷åòîì çàòðàòû, åñëè àâòî íå íàéäåíî -"-1"
+//Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰Ð°ÐµÑ‚ ÑÑƒÐ¼Ð¼Ñƒ Ð´Ð¾Ñ…Ð¾Ð´Ð¾Ð² Ð¾Ñ‚ Ð¿Ñ€Ð¾Ð´Ð°Ð¶Ð¸ Ð°Ð²Ñ‚Ð¾ Ñ ÑƒÑ‡ÐµÑ‚Ð¾Ð¼ Ð·Ð°Ñ‚Ñ€Ð°Ñ‚Ñ‹, ÐµÑÐ»Ð¸ Ð°Ð²Ñ‚Ð¾ Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½Ð¾ -"-1"
 int AutoList::ShowAnAutoCost(Str Brand, Str Series)
 {
     iter = PtrAutoList.begin();
     while (iter != PtrAutoList.end())
-    { // ïîèñê àâòî â ñïèñêå 
-        if (Brand == ((*iter)->GetBrand()) && Series == (*iter)->GetSeries()) // ñðàâíèâàåì ïî ìàðêå è ñåðèè
+    { // Ð¿Ð¾Ð¸ÑÐº Ð°Ð²Ñ‚Ð¾ Ð² ÑÐ¿Ð¸ÑÐºÐµ 
+        if (Brand == ((*iter)->GetBrand()) && Series == (*iter)->GetSeries()) // ÑÑ€Ð°Ð²Ð½Ð¸Ð²Ð°ÐµÐ¼ Ð¿Ð¾ Ð¼Ð°Ñ€ÐºÐµ Ð¸ ÑÐµÑ€Ð¸Ð¸
         {
-            // åñëè ïîëó÷èâøàÿñÿ ïàðà ñîâïàäàåò - çíà÷èò, 
-            //ìû íàøëè çàïèñü îá àâòî â ñïèñêå, â ýòîì ñëó÷àå 
-            return (*iter)->GetDifference(); // âîçâðàùàåì ðàçíèöó êóïëè/ïðîäàæè
+            // ÐµÑÐ»Ð¸ Ð¿Ð¾Ð»ÑƒÑ‡Ð¸Ð²ÑˆÐ°ÑÑÑ Ð¿Ð°Ñ€Ð° ÑÐ¾Ð²Ð¿Ð°Ð´Ð°ÐµÑ‚ - Ð·Ð½Ð°Ñ‡Ð¸Ñ‚, 
+            //Ð¼Ñ‹ Ð½Ð°ÑˆÐ»Ð¸ Ð·Ð°Ð¿Ð¸ÑÑŒ Ð¾Ð± Ð°Ð²Ñ‚Ð¾ Ð² ÑÐ¿Ð¸ÑÐºÐµ, Ð² ÑÑ‚Ð¾Ð¼ ÑÐ»ÑƒÑ‡Ð°Ðµ 
+            return (*iter)->GetDifference(); // Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰Ð°ÐµÐ¼ Ñ€Ð°Ð·Ð½Ð¸Ñ†Ñƒ ÐºÑƒÐ¿Ð»Ð¸/Ð¿Ñ€Ð¾Ð´Ð°Ð¶Ð¸
         }
         iter++;
     }
-    return -1; // åñëè íåò - âîçâðàùàåì -1
+    return -1; // ÐµÑÐ»Ð¸ Ð½ÐµÑ‚ - Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰Ð°ÐµÐ¼ -1
 }
 
-// Êëàññ AutoScreen
+// ÐšÐ»Ð°ÑÑ AutoScreen
 
-// èíòåðôåéñ çàïèñè â ñïèñîê
+// Ð¸Ð½Ñ‚ÐµÑ€Ñ„ÐµÐ¹Ñ Ð·Ð°Ð¿Ð¸ÑÐ¸ Ð² ÑÐ¿Ð¸ÑÐ¾Ðº
 void AutoScreen::SetAuto() 
 {
     
@@ -178,7 +178,7 @@ void AutoScreen::SetAuto()
     input Brand;
     out "\n";
     //std::cin.get(temp, 20, '\n');
-    //std::cin.ignore(20, '\n'); //÷èñëî ïðîïóñêàåìûõ ñèìâîëîâ è ñèìâîë ðàçäåëåíèÿ
+    //std::cin.ignore(20, '\n'); //Ñ‡Ð¸ÑÐ»Ð¾ Ð¿Ñ€Ð¾Ð¿ÑƒÑÐºÐ°ÐµÐ¼Ñ‹Ñ… ÑÐ¸Ð¼Ð²Ð¾Ð»Ð¾Ð² Ð¸ ÑÐ¸Ð¼Ð²Ð¾Ð» Ñ€Ð°Ð·Ð´ÐµÐ»ÐµÐ½Ð¸Ñ
     //BufStr = temp;
     out "Enter series of a car\n>>>";
     input Series;
@@ -188,8 +188,8 @@ void AutoScreen::SetAuto()
     out "\n";
     out "Enter cost of purchased cars\n>>>";
     input Cost;
-    AutoExample* ptrAuto = new AutoExample(Brand, Series, NumberOfBought, Cost);// ñîçäàòü ýêçåìïëÿð àâòî
-    PtrAutoList->insertAuto(ptrAuto);//çàíåñòè â ñïèñîê
+    AutoExample* ptrAuto = new AutoExample(Brand, Series, NumberOfBought, Cost);// ÑÐ¾Ð·Ð´Ð°Ñ‚ÑŒ ÑÐºÐ·ÐµÐ¼Ð¿Ð»ÑÑ€ Ð°Ð²Ñ‚Ð¾
+    PtrAutoList->insertAuto(ptrAuto);//Ð·Ð°Ð½ÐµÑÑ‚Ð¸ Ð² ÑÐ¿Ð¸ÑÐ¾Ðº
     PtrAutoList->ShowAutoList();
 }
 

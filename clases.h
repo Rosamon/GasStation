@@ -1,40 +1,40 @@
 #pragma once
-// Содержит классы файл этот
+// РЎРѕРґРµСЂР¶РёС‚ РєР»Р°СЃСЃС‹ С„Р°Р№Р» СЌС‚РѕС‚
 #include "inclusions.h"
 
-//класс авто содержит свойства описывающие идентичность авто, а так же его статус
+//РєР»Р°СЃСЃ Р°РІС‚Рѕ СЃРѕРґРµСЂР¶РёС‚ СЃРІРѕР№СЃС‚РІР° РѕРїРёСЃС‹РІР°СЋС‰РёРµ РёРґРµРЅС‚РёС‡РЅРѕСЃС‚СЊ Р°РІС‚Рѕ, Р° С‚Р°Рє Р¶Рµ РµРіРѕ СЃС‚Р°С‚СѓСЃ
 class AutoExample
 {
 public:
 	AutoExample(Str BrandBought, Str SeriesBought, short Number, int Cost);//Konstructor
 	~AutoExample();
-	int GetDifference();//Возвращает разницу купли/продажи
-	int SetSellCost(int Cost);// Устанавливает стоимость проданного авто, можно купить лишь одно авто
-	Str GetBrand() { return Brand; };// Получить марку
-	Str GetSeries() { return Series; };// Получить серию
-	int GetNumberAuto() { return NumberOfBought - NumberOfSold; };//количество авто на складе
+	int GetDifference();//Р’РѕР·РІСЂР°С‰Р°РµС‚ СЂР°Р·РЅРёС†Сѓ РєСѓРїР»Рё/РїСЂРѕРґР°Р¶Рё
+	int SetSellCost(int Cost);// РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ СЃС‚РѕРёРјРѕСЃС‚СЊ РїСЂРѕРґР°РЅРЅРѕРіРѕ Р°РІС‚Рѕ, РјРѕР¶РЅРѕ РєСѓРїРёС‚СЊ Р»РёС€СЊ РѕРґРЅРѕ Р°РІС‚Рѕ
+	Str GetBrand() { return Brand; };// РџРѕР»СѓС‡РёС‚СЊ РјР°СЂРєСѓ
+	Str GetSeries() { return Series; };// РџРѕР»СѓС‡РёС‚СЊ СЃРµСЂРёСЋ
+	int GetNumberAuto() { return NumberOfBought - NumberOfSold; };//РєРѕР»РёС‡РµСЃС‚РІРѕ Р°РІС‚Рѕ РЅР° СЃРєР»Р°РґРµ
 private:
-	Str Brand;// Мрака
-	Str Series;// серия, может быть как цифрой так и названием 
-	//рудимент - char Status;// s - продано, b - куплено и есть во владении
-	short NumberOfBought;// Количество приобретенных
-	short NumberOfSold;// количество проданных
-	int BuyCost;// сумма потраченная на покупку авто
-	int SellCost;// сумма вырученная с продажи всех авто этой марки и серии
+	Str Brand;// РњСЂР°РєР°
+	Str Series;// СЃРµСЂРёСЏ, РјРѕР¶РµС‚ Р±С‹С‚СЊ РєР°Рє С†РёС„СЂРѕР№ С‚Р°Рє Рё РЅР°Р·РІР°РЅРёРµРј 
+	//СЂСѓРґРёРјРµРЅС‚ - char Status;// s - РїСЂРѕРґР°РЅРѕ, b - РєСѓРїР»РµРЅРѕ Рё РµСЃС‚СЊ РІРѕ РІР»Р°РґРµРЅРёРё
+	short NumberOfBought;// РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРёРѕР±СЂРµС‚РµРЅРЅС‹С…
+	short NumberOfSold;// РєРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕРґР°РЅРЅС‹С…
+	int BuyCost;// СЃСѓРјРјР° РїРѕС‚СЂР°С‡РµРЅРЅР°СЏ РЅР° РїРѕРєСѓРїРєСѓ Р°РІС‚Рѕ
+	int SellCost;// СЃСѓРјРјР° РІС‹СЂСѓС‡РµРЅРЅР°СЏ СЃ РїСЂРѕРґР°Р¶Рё РІСЃРµС… Р°РІС‚Рѕ СЌС‚РѕР№ РјР°СЂРєРё Рё СЃРµСЂРёРё
 };
 
-// Класс содержит указатели на AutoExample, создает список из элементов класса AutoExample
+// РљР»Р°СЃСЃ СЃРѕРґРµСЂР¶РёС‚ СѓРєР°Р·Р°С‚РµР»Рё РЅР° AutoExample, СЃРѕР·РґР°РµС‚ СЃРїРёСЃРѕРє РёР· СЌР»РµРјРµРЅС‚РѕРІ РєР»Р°СЃСЃР° AutoExample
 class AutoList
 {
 public:
 	//AutoList();
 	~AutoList();
-	int insertAuto(AutoExample*);// Позволяет добавть авто в список
-	int ShowAutoList();// Показыает список авто
-	int ShowAnAutoCost(Str, Str);// Разница отдельной марки
+	int insertAuto(AutoExample*);// РџРѕР·РІРѕР»СЏРµС‚ РґРѕР±Р°РІС‚СЊ Р°РІС‚Рѕ РІ СЃРїРёСЃРѕРє
+	int ShowAutoList();// РџРѕРєР°Р·С‹Р°РµС‚ СЃРїРёСЃРѕРє Р°РІС‚Рѕ
+	int ShowAnAutoCost(Str, Str);// Р Р°Р·РЅРёС†Р° РѕС‚РґРµР»СЊРЅРѕР№ РјР°СЂРєРё
 private:
-	std::list <AutoExample*> PtrAutoList; // указатели на класс AutoExample
-	std::list <AutoExample*>::iterator iter; //итератор
+	std::list <AutoExample*> PtrAutoList; // СѓРєР°Р·Р°С‚РµР»Рё РЅР° РєР»Р°СЃСЃ AutoExample
+	std::list <AutoExample*>::iterator iter; //РёС‚РµСЂР°С‚РѕСЂ
 };
 
 //
