@@ -5,6 +5,12 @@
 
 int main()
 {
-    MyMainMenu(0, 1);
+    //Функция setlocale() задаёт локализацию программы.
+    setlocale(LC_ALL, "rus");
+    int x = 1;
+    while (!x)
+    {
+        MyMainMenu(0, 1);
+    }
     return 0;
 }

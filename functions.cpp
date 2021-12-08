@@ -68,10 +68,9 @@ int ChooseMenu(int numb, int time_out)
 //класс AutoExamples
 
 //Конструктор задает значения марки, серии, количество и стоимость купленных авто
-AutoExample::AutoExample(Str BrandBought, Str SeriesBought, short Number, int Cost) :
-    Brand(BrandBought), Series(SeriesBought), NumberOfBought(Number), BuyCost(Cost)
+AutoExample::AutoExample(Str BrandBought, Str SeriesBought, int Cost):
+    Brand(BrandBought), Series(SeriesBought), BuyCost(Cost)
 {
-    NumberOfSold = 0;
     SellCost = 0;
 }
 
@@ -79,21 +78,11 @@ AutoExample::AutoExample(Str BrandBought, Str SeriesBought, short Number, int Co
 AutoExample::~AutoExample()
 {
 }
-//Возвращает разницу купли / продажи, Проданные - Купленные
-int AutoExample::GetDifference()
-{
-    return SellCost - BuyCost;
-}
 
 // Устанавливает стоимость проданного авто, можно купить лишь одно авто
 int AutoExample::SetSellCost(int Cost)
 {
-    if (NumberOfBought >= NumberOfSold)
-    {
-        return -1;// Ошибка, связанная с отсутствием авто на базе
-    }
-    SellCost += Cost;
-    NumberOfSold++;// +1 проданный автомобиль
+    SellCost = Cost;
     return 0;
 }
 
@@ -140,7 +129,7 @@ int AutoList::ShowAutoList()
             pass(10);
             out (*iter)->GetSeries();
             pass(10);
-            out (*iter)->GetNumberAuto();//количество на складе
+            //out (*iter)->GetNumberAuto();//количество на складе
             *iter++;
             out"\n";
         }
@@ -158,7 +147,7 @@ int AutoList::ShowAnAutoCost(Str Brand, Str Series)
         {
             // если получившаяся пара совпадает - значит, 
             //мы нашли запись об авто в списке, в этом случае 
-            return (*iter)->GetDifference(); // возвращаем разницу купли/продажи
+            //return (*iter)->GetDifference(); // возвращаем разницу купли/продажи
         }
         iter++;
     }
@@ -183,12 +172,9 @@ void AutoScreen::SetAuto()
     out "Enter series of a car\n>>>";
     input Series;
     out "\n";
-    out "Enter number of purchased cars\n>>>";
-    input NumberOfBought;
-    out "\n";
     out "Enter cost of purchased cars\n>>>";
     input Cost;
-    AutoExample* ptrAuto = new AutoExample(Brand, Series, NumberOfBought, Cost);// создать экземпляр авто
+    AutoExample* ptrAuto = new AutoExample(Brand, Series, Cost);// создать экземпляр авто
     PtrAutoList->insertAuto(ptrAuto);//занести в список
     PtrAutoList->ShowAutoList();
 }
