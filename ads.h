@@ -3,4 +3,5 @@
 //Запуск главного меню
 #include "clases.h"
 int menu();
-int SaveDataAuto(int);
+int MyMainMenu(AutoList);
+int SaveDataAuto(int, AutoList&);
