@@ -10,7 +10,7 @@
 #define input std::cin >>
 #endif
 //для простоты вывода в консоль сокращаем запись
-#include "ads.h"
+
 //#include "clases.h"
 // 20.11
 #include <string>
