@@ -106,7 +106,7 @@ int MyMainMenu(AutoList ptrAutoList)
         break;
         }
         case 2:
-            out "\nYour numb is 2 - " << numb << "\n";
+         
             break;
         case 3:
             out "\nYour numb is 3 - " << numb << "\n";
