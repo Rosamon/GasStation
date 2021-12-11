@@ -21,7 +21,7 @@
 #endif
 // Для простоты объявления строк. 
 #ifndef pass
-#define pass(x) std::cout << std::setw(x)
+#define pass(x) std::cout << std::setw(x) // Пропуск символов в количестве x
 #endif
 // Для форматирования вывода
 #include <iomanip>

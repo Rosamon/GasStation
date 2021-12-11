@@ -1,67 +1,74 @@
 #pragma once
 #include "clases.h"
 
+int MyMainMenu(AutoList);
+
+int menu() {
+    AutoList* ptrAutoList = new AutoList();
+    system("cls");
+    MyMainMenu(*ptrAutoList);
+    
+    return 1;
+}
 // Главное меню
-void MyMainMenu(int mode = 0, int time_out = 1)
+int MyMainMenu(AutoList ptrAutoList)
 {
-    int numb = 0;
-    out "Welcome to AutoGasStation app. Develop for DIRVE-MOTORS.\n";
-    out Str(40, '-') <<"\n\n";
-    out "Here you can work with: \n1. Car sale\n2. Sale of auto parts";
-    out "\n3. Gas station\n";
-    out Str(40, '-') << "\n\n";
-    if (mode)
+    int mode = 0;
+    while (true)
     {
-        if (time_out == 4)
+        out "\n\n";
+        int numb = 0;
+        out "Welcome to AutoGasStation app. Develop for DIRVE-MOTORS.\n";
+        out Str(40, '-') << "\n\n";
+        out "Here you can work with: \n1. Car sale\n2. Sale of auto parts";
+        out "\n3. Gas station\n4. Exit\n";
+        out Str(40, '-') << "\n\n";
+
+        if (mode)
         {
-            out"It's last try. Please don't be angry\n\n";
+
+            out "You wrote a WRONG number! Please write again\n\n>>> ";
         }
-        if (time_out == 5)
+        else
         {
-            out "Your limit is out. Maybe it's our mistake. Please try agani later.\n\n";
-            return;//выход из програмы в случае привышения количества вхождений
+            out "(Write a number for choose)\n\n>>> ";
         }
-        out "You wrote a WRONG number! Please write again\n\n>>> ";
-    }
-    else
-    {
-        out "(Write a number for choose)\n\n>>> ";
-    }
+        mode = 0;
 
-    input numb;
-    ChooseMenu(numb, time_out);
+        input numb;
 
-}
-
-//Функция в зависимости от принимаемых значений выводит менюю для взаимодействия с пользователем
-int ChooseMenu(int numb, int time_out)
-{
-    system("cls"); // очистка экрана! Другой вариант не рассматриваеться
-    switch (numb)
-    {
-    case 1:
-    {   out "Now you can only add couple of cars\n";
-        AutoList* ptrAutoList = new AutoList();
-        AutoScreen* ptrAutoScreen = new AutoScreen(ptrAutoList);
-        ptrAutoScreen->SetAuto();
+        system("cls"); // очистка экрана! Другой вариант не рассматриваеться
+        switch (numb)
+        {
+        case 1:
+        {   out "Now you can only add one car\n";
+        ptrAutoList.ShowAutoList();
+        AutoScreen* ptrAutoScreen = new AutoScreen(&ptrAutoList);
+        AutoExample* BuffAuto = ptrAutoScreen->SetAuto();
+        ptrAutoList.insertAuto(BuffAuto);
         delete ptrAutoScreen;
-        break;
-    }
-    case 2:
-        out "\nYour numb is 2 - " << numb << "\n";
-        break;
-    case 3:
-        out "\nYour numb is 3 - " << numb << "\n";
-        break;
-    default:
-        
-        MyMainMenu(2, ++time_out); // вызов функции главного меню с выводом ошибки, для предотвращения перегрузки будет использоваться второй параметр
-        //обозначающий количество входов в функцию. Максимум 5.
-        break;
-    }
 
-    return 0;
+        break;
+        }
+        case 2:
+            out "\nYour numb is 2 - " << numb << "\n";
+            break;
+        case 3:
+            out "\nYour numb is 3 - " << numb << "\n";
+            break;
+        case 4:
+            return 1;
+        default:
+            mode += 1;
+            //MyMainMenu(2); // вызов функции главного меню с выводом ошибки, для предотвращения перегрузки будет использоваться второй параметр
+            //обозначающий количество входов в функцию. Максимум 5.
+            break;
+        }
+
+        system("pause");
+    }
 }
+
 
 //далее методы классов
 
@@ -157,7 +164,7 @@ int AutoList::ShowAnAutoCost(Str Brand, Str Series)
 // Класс AutoScreen
 
 // интерфейс записи в список
-void AutoScreen::SetAuto() 
+AutoExample* AutoScreen::SetAuto()
 {
     
     //Str BufStr;
@@ -175,8 +182,10 @@ void AutoScreen::SetAuto()
     out "Enter cost of purchased cars\n>>>";
     input Cost;
     AutoExample* ptrAuto = new AutoExample(Brand, Series, Cost);// создать экземпляр авто
-    PtrAutoList->insertAuto(ptrAuto);//занести в список
-    PtrAutoList->ShowAutoList();
+    return ptrAuto;
+    //PtrAutoList->insertAuto(ptrAuto);//занести в список
+    //ptrBuff.insertAuto(ptrAuto);
+    //PtrAutoList->ShowAutoList();
 }
 
 

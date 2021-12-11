@@ -12,7 +12,7 @@ public:
 	Str GetBrand() { return Brand; };// Получить марку
 	Str GetSeries() { return Series; };// Получить серию
 private:
-	Str Brand;// Мрака
+	Str Brand;// Марка
 	Str Series;// серия/модель, может быть как цифрой так и названием 
 	int BuyCost;// сумма потраченная на покупку авто "Закупочная цена"
 	int SellCost;// сумма вырученная с продажи всех авто этой марки и серии "Розничная цена"
@@ -20,7 +20,7 @@ private:
 	Str Condition;// Состояние авто: "Sold" - продано, "New" - новое, "Used" - поддержаный
 };
 
-!! Добавить в конструктор новые поля + исправить ошибки, снять поля, которые не требуются
+//!! Добавить в конструктор новые поля + исправить ошибки, снять поля, которые не требуются
 
 // Класс содержит указатели на AutoExample, создает список из элементов класса AutoExample
 class AutoList
@@ -42,7 +42,7 @@ class AutoScreen
 public:
 	AutoScreen(AutoList* ptrAL):PtrAutoList(ptrAL) {};
 	//~AutoScreen();
-	void SetAuto();
+	AutoExample* SetAuto();
 private:
 	AutoList* PtrAutoList;
 	Str Brand;

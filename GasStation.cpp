@@ -7,10 +7,8 @@ int main()
 {
     //Функция setlocale() задаёт локализацию программы.
     setlocale(LC_ALL, "rus");
-    int x = 1;
-    while (!x)
-    {
-        MyMainMenu(0, 1);
-    }
+    menu();
+    system("cls");
+    out "Yure a best";
     return 0;
 }
