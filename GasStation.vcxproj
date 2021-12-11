@@ -139,6 +139,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AutoExample.cpp" />
+    <ClCompile Include="AutoList.cpp" />
     <ClCompile Include="functions.cpp" />
     <ClCompile Include="GasStation.cpp" />
   </ItemGroup>

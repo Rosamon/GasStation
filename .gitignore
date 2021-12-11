@@ -8,7 +8,8 @@
 
 #may be its a mistake
 /.vs
-
+*.~ml
+*.uml
 # Build results
 
 [Dd]ebug/

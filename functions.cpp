@@ -1,52 +1,168 @@
 #pragma once
-#include "inclusions.h"
+#include "clases.h"
+#include "ads.h"
 
-// Главное меню
-void MyMainMenu(int mode = 0, int time_out = 1)
+
+int menu() {
+    AutoList* ptrAutoList = new AutoList();
+    system("cls");
+    MyMainMenu(*ptrAutoList);
+    
+    return 1;
+}
+// Р“Р»Р°РІРЅРѕРµ РјРµРЅСЋ
+int MyMainMenu(AutoList ptrAutoList)
 {
-    int numb = 0;
-    out "Welcome to AutoGasStation app. Develop for DIRVE-MOTORS.\n\n";
-    out "Here you can make a report about: \n1. Car sale\n2. Sale of auto parts";
-    out "\n3. Gas station\n";
-    if (mode)
+    int mode = 0;
+    while (true)
     {
-        if (time_out == 5)
+        system("cls");
+        out "\n\n";
+        int numb = 0;
+        out "Welcome to AutoGasStation app. Develop for DIRVE-MOTORS.\n";
+        out Str(40, '-') << "\n\n";
+        out "Here you can work with: \n1. Car sale\n2. Sale of auto parts";
+        out "\n3. Gas station\n4. Save an information\n5. Exit\n";
+        out Str(40, '-') << "\n\n";
+
+        if (mode)
         {
-            out "Your limit is out. Maybe it's our mistake. Please try agani later.\n\n";
-            return;//выход из програмы в случае привышения количества вхождений
+
+            out "You wrote a WRONG number! Please write again\n\n>>> ";
         }
-        out "You wrote a WRONG number! Please write again\n\n>>> ";
-    }
-    else
-    {
-        out "(Write a number for choose)\n\n>>> ";
-    }
+        else
+        {
+            out "(Write a number for choose)\n\n>>> ";
+        }
+        mode = 0;
 
-    input numb;
-    ChooseMenu(numb, time_out);
+        input numb;
+        
+        system("cls"); // РѕС‡РёСЃС‚РєР° СЌРєСЂР°РЅР°! Р”СЂСѓРіРѕР№ РІР°СЂРёР°РЅС‚ РЅРµ СЂР°СЃСЃРјР°С‚СЂРёРІР°РµС‚СЊСЃСЏ
+        switch (numb)
+        {
+        case 1:
+        {   
+            out "\n1. Add a car\n2. Delete a car\n3. Sell a car\n4. Show all cars\n >>> ";
+            input numb; // РџСЂРёРЅРёРјР°РµРј СЂРµС€РµРЅРёРµ РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ РІС‹Р±СЂР°РЅРЅРѕР№ С†РёС„СЂС‹ (РїРµСЂРµРјРµРЅРЅР°СЏ Р±С‹Р»Р° СѓР¶Рµ РёСЃРїРѕР»СЊР·РѕРІР°РЅР°)
+            switch (numb)
+            {
+            case 1:
+                {
+                    system("cls");
+                    out "Now you can only add one car\n";
+                    AutoScreen* ptrAutoScreen = new AutoScreen(&ptrAutoList);
+                    AutoExample* BuffAuto = ptrAutoScreen->SetAuto();
+                    ptrAutoList.insertAuto(BuffAuto);
+                    delete ptrAutoScreen;
+                }
+                break;
+            case 2:
+                {
+                    ptrAutoList.ShowAutoList();
+                    out "\n\nWrite the brand and series of a car for delete";
+                    out "\n\nWrite the brand >> ";
+                    Str BrandCar;
+                    input BrandCar;
+                    out "\n\nWrite the series >> ";
+                    Str SeriesCar;
+                    input SeriesCar;
+                    if (!ptrAutoList.DeleteCar(BrandCar, SeriesCar))
+                    {
+                        out "\n Deleted\n";
+                    }
+                    else
+                    {
+                        out "\nCar wasn't delete!!!\n";
+                    }
+                }
+                break;
+            case 3:
+            {
+                ptrAutoList.ShowAutoList();
+                out "\n\nWrite the brand and series of a car for sell";
+                out "\n\nWrite the brand >> ";
+                Str BrandCar;
+                input BrandCar;
+                out "\n\nWrite the series >> ";
+                Str SeriesCar;
+                input SeriesCar;
+                if (!ptrAutoList.SellCar(BrandCar, SeriesCar))
+                {
+                    out "\n Sold\n";
+                }
+                else
+                {
+                    out "\nCar wasn't sell!!!\n";
+                }
+            }
+            break;
+            case 4:
+            {
+                ptrAutoList.ShowAutoList();
+            }
+            }
 
+        break;
+        }
+        case 2:
+            out "\nYour numb is 2 - " << numb << "\n";
+            break;
+        case 3:
+            out "\nYour numb is 3 - " << numb << "\n";
+            break;
+        case 4:
+        {   
+            out "\nWrite current mounth\n>>> ";
+            int Mounth = 0;
+            input Mounth;
+            SaveDataAuto(Mounth, ptrAutoList);
+            break;
+        }
+        case 5:
+            return 1;
+        default:
+            mode += 1;
+            //MyMainMenu(2); // РІС‹Р·РѕРІ С„СѓРЅРєС†РёРё РіР»Р°РІРЅРѕРіРѕ РјРµРЅСЋ СЃ РІС‹РІРѕРґРѕРј РѕС€РёР±РєРё, РґР»СЏ РїСЂРµРґРѕС‚РІСЂР°С‰РµРЅРёСЏ РїРµСЂРµРіСЂСѓР·РєРё Р±СѓРґРµС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ РІС‚РѕСЂРѕР№ РїР°СЂР°РјРµС‚СЂ
+            //РѕР±РѕР·РЅР°С‡Р°СЋС‰РёР№ РєРѕР»РёС‡РµСЃС‚РІРѕ РІС…РѕРґРѕРІ РІ С„СѓРЅРєС†РёСЋ. РњР°РєСЃРёРјСѓРј 5.
+            break;
+        }
+
+        system("pause");
+    }
 }
 
-//Функция в зависимости от принимаемых значений выводит менюю для взаимодействия с пользователем
-int ChooseMenu(int numb, int time_out)
-{
-    switch (numb)
-    {
-    case 1:
-        out "\nYour numb is 1 - " << numb << "\n";
-        break;
-    case 2:
-        out "\nYour numb is 2 - " << numb << "\n";
-        break;
-    case 3:
-        out "\nYour numb is 3 - " << numb << "\n";
-        break;
-    default:
-        system("cls"); // очистка экрана! Другой вариант не рассматриваеться
-        MyMainMenu(2, ++time_out); // вызов функции главного меню с выводом ошибки, для предотвращения перегрузки будет использоваться второй параметр
-        //обозначающий количество входов в функцию. Максимум 5.
-        break;
-    }
 
+//РґР°Р»РµРµ РјРµС‚РѕРґС‹ РєР»Р°СЃСЃРѕРІ
+
+// РљР»Р°СЃСЃ AutoScreen
+
+// РёРЅС‚РµСЂС„РµР№СЃ Р·Р°РїРёСЃРё РІ СЃРїРёСЃРѕРє
+AutoExample* AutoScreen::SetAuto()
+{
+    
+    out "Enter brand of a car:\n>>> ";
+    input Brand;
+    out "\n";
+    out "Enter series of a car\n>>> ";
+    input Series;
+    out "\n";
+    out "Enter car's year of issue:\n>>> ";
+    input Year;
+    out "\n";
+    out "Enter condition of a car (New, Used):\n>>> ";
+    input Condition;
+    out "\n";
+    out "Enter cost of purchased car\n>>> ";
+    input Cost;
+    AutoExample* ptrAuto = new AutoExample(Brand, Series, Cost,Year, Condition);// СЃРѕР·РґР°С‚СЊ СЌРєР·РµРјРїР»СЏСЂ Р°РІС‚Рѕ
+    return ptrAuto;
+}
+
+int SaveDataAuto(int Mounth, AutoList& WriteList)
+{
+    out "\nSorry but this feature doesn't work yet\n";
     return 0;
 }
+
+

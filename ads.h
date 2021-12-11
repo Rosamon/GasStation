@@ -1,8 +1,7 @@
 #pragma once
-//здесь находятся объявления функций
-
-//Запуск главного меню
-void MyMainMenu(int, int);
-//Выбор под меню
-int ChooseMenu(int, int);
-
+//Р·РґРµСЃСЊ РЅР°С…РѕРґСЏС‚СЃСЏ РѕР±СЉСЏРІР»РµРЅРёСЏ С„СѓРЅРєС†РёР№
+//Р—Р°РїСѓСЃРє РіР»Р°РІРЅРѕРіРѕ РјРµРЅСЋ
+#include "clases.h"
+int menu();
+int MyMainMenu(AutoList);
+int SaveDataAuto(int, AutoList&);
