@@ -131,7 +131,70 @@ int MyMainMenu(AutoList ptrAutoList)
         system("pause");
     }
 }
-
+int WorkPartsScreen(PartList& ptrPartsList)
+{
+    int numb;
+    out "\n1. Add spare parts\n2. Delete spare parts\n3. Sell spare parts\n4. Show all list of parts\n >>> ";
+    input numb; // Принимаем решение в зависимости от выбранной цифры (переменная была уже использована)
+    switch (numb)
+    {
+    case 1:
+    {
+        system("cls");
+        out "Now you can only add one car\n";
+        PartsScreen* ptrPartsScreen = new PartsScreen(&ptrPartsList);
+        SparePart* Buffer = ptrPartsScreen->SetParts();
+        ptrPartsList.insertParts(Buffer);
+        delete ptrPartsScreen;
+    }
+    break;
+    case 2:
+    {
+        ptrPartsList.ShowAllList();
+        out "\n\nWrite the name of a part and series number of a part for delete";
+        out "\n\nWrite the name >> ";
+        Str Name;
+        input Name;
+        out "\n\nWrite the series number >> ";
+        int SeriesNumber;
+        input SeriesNumber;
+        if (!ptrPartsList.DeleteParts(Name, SeriesNumber))
+        {
+            out "\n Deleted\n";
+        }
+        else
+        {
+            out "\nLine wasn't delete!!!\n";
+        }
+    }
+    break;
+    case 3:
+    {
+        ptrPartsList.ShowAllList();
+        out "\n\nWrite the name of a part and series number of a part for sell";
+        out "\n\nWrite the name >> ";
+        Str Name;
+        input Name;
+        out "\n\nWrite the series number >> ";
+        int SeriesNumber;
+        input SeriesNumber;
+        if (!ptrPartsList.SellParts(Name, SeriesNumber))
+        {
+            out "\n Sold\n";
+        }
+        else
+        {
+            out "\nParts weren't sell!!!\n";
+        }
+    }
+    break;
+    case 4:
+    {
+        ptrPartsList.ShowAllList();
+    }
+    }
+    return 0;
+}
 
 //далее методы классов
 
