@@ -54,6 +54,8 @@ int MyMainMenu(AutoList ptrAutoList, PartList ptrPartsList)
                     AutoScreen* ptrAutoScreen = new AutoScreen(&ptrAutoList);
                     AutoExample* BuffAuto = ptrAutoScreen->SetAuto();
                     ptrAutoList.insertAuto(BuffAuto);
+                    if (WorkReportScreen(ptrAutoList, ptrPartsList))
+                       return 2;
                     delete ptrAutoScreen;
                 }
                 break;
