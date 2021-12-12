@@ -6,7 +6,7 @@
 int menu() {
     AutoList* ptrAutoList = new AutoList();
     system("cls");
-    MyMainMenu(*ptrAutoList);
+   MyMainMenu(*ptrAutoList, *ptrPartsList);
     
     return 1;
 }
