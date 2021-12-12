@@ -10,6 +10,65 @@ int menu() {
     PartList* ptrPartsList = new PartList();
     return 1;
 }
+int WorkReportScreen(AutoList& ptrAutoList, PartList& ptrPartList)
+{
+    //
+    out "What kind of report do you wandt to make? \n";
+    out "1. Income from car sales for the current mounth\n2. Income from the sale of auto parts for the current mounth\n";
+    //out "3. Make an year report\n";
+    out "4. Exit\n>>>";
+    int numb = 0;
+    input numb;
+    switch (numb)
+    {
+    case 1:
+        writeAutoReport(&ptrAutoList);
+        break;
+    case 2:
+        writePartsReport(&ptrPartList);
+        break;
+    case 3:
+        return 2;
+        break;
+    case 4:
+    default:
+        return 0;
+        break;
+    }
+}
+int writeAutoReport(AutoList* ptrAutoList)
+{
+    if (!ptrAutoList->MakeReport())
+    {
+        return 0;
+        out "\n\n Do you want save this report in a TXT file?\nEnter y for yes\n>>>";
+        Str Ans;
+        input Ans;
+        if (Ans != "y")
+        {
+            out "Sorry but this feature dosen't work yet :(";
+            //ptrAutoList->SaveReport();
+        }
+    }
+    return 0;
+}
+
+int writePartsReport(PartList* ptrPartList)
+{
+    if (!ptrPartList->MakeReport())
+    {
+        return 0;
+        out "\n\n Do you want save this report in a TXT file?\nEnter y for yes\n>>>";
+        Str Ans;
+        input Ans;
+        if (Ans != "y")
+        {
+            out "Sorry but this feature dosen't work yet :(";
+            //ptrPartList->SaveReport();
+        }
+    }
+    return 0;
+}
 // Главное меню
 int MyMainMenu(AutoList ptrAutoList, PartList ptrPartsList)
 {
