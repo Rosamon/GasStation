@@ -7,7 +7,7 @@ int menu() {
     AutoList* ptrAutoList = new AutoList();
     system("cls");
    MyMainMenu(*ptrAutoList, *ptrPartsList);
-    
+    PartList* ptrPartsList = new PartList();
     return 1;
 }
 // Главное меню
