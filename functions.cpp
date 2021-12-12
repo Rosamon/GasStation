@@ -11,7 +11,7 @@ int menu() {
     return 1;
 }
 // Главное меню
-int MyMainMenu(AutoList ptrAutoList)
+int MyMainMenu(AutoList ptrAutoList, PartList ptrPartsList)
 {
     int mode = 0;
     while (true)
