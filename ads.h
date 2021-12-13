@@ -3,7 +3,7 @@
 //Запуск главного меню
 #include "clases.h"
 int menu();
-int MyMainMenu(AutoList, PartList)
+int MyMainMenu(AutoList, PartList);
 int SaveDataAuto(int, AutoList&);
 int WorkAutoScreen(AutoList&);
 int WorkPartsScreen(PartList&);
