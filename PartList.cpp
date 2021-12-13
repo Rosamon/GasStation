@@ -139,7 +139,9 @@ int PartList::MakeReport()
     pass(10);
     out "| Condition ";
     pass(15);
-    out "| Proceeds  |";
+    out "| BuyCost  ";
+    pass(15);
+    out "| Prossed  ";
     out"\n";
     int TotalIncome = 0;
     if (PtrPartList.empty()) // если список жильцов пуст
@@ -166,8 +168,9 @@ int PartList::MakeReport()
             out(*iter)->GetCondition();//
             pass(10);
             out(*iter)->GetBuyCost();
+            pass(15);
             int Buff = (*iter)->GetDiference();
-            pass(10);
+            pass(15);
             out Buff;
             TotalIncome += Buff;
             *iter++;

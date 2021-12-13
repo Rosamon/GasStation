@@ -76,6 +76,7 @@ int MyMainMenu(AutoList ptrAutoList, PartList ptrPartsList)
 {
     while (true)
     {
+        int mode =0;
         system("cls");
         out "\n\n";
         int numb = 0;
@@ -123,7 +124,8 @@ int MyMainMenu(AutoList ptrAutoList, PartList ptrPartsList)
         }
         case 5:
             return 1;
-        default:            
+        default: 
+            mode++;
             break;
         }
         out"\n";
