@@ -111,3 +111,52 @@ int AutoList::ShowAutoList()
     }
     return 0;
 }
+int AutoList::MakeReport()
+{
+    pass(10);
+    out "Brand ";
+    pass(10);
+    out "| Series ";
+    pass(10);
+    out "| Year ";
+    pass(15);
+    out "| Condition ";
+    pass(15);
+    out "| Price ";
+    pass(15);
+    out "| Proceeds  |";
+    out"\n";
+    int TotalIncome = 0;
+    if (PtrAutoList.empty()) // если список жильцов пуст
+    {
+        out "Cars is out!\n"; // выводим запись, что он пуст)
+        return 1;
+    }
+    else
+    {
+        iter = PtrAutoList.begin();
+        while (iter != PtrAutoList.end()) // вывод пока не конец
+        {
+            pass(10);
+            out(*iter)->GetBrand();
+            pass(10);
+            out(*iter)->GetSeries();
+            pass(10);
+            out(*iter)->GetYear();
+            pass(15);
+            out(*iter)->GetCondition();
+            pass(15);
+            out(*iter)->GetBuycost();
+            pass(15);
+            int Buff = (*iter)->ShowAnAutoCost();
+            out Buff;
+            TotalIncome += Buff;
+            *iter++;
+            out"\n";
+        }
+    }
+    out "\n\n";
+    pass(40);
+    out "Total income: " << TotalIncome;
+    return 0;
+}

@@ -143,6 +143,9 @@
     <ClCompile Include="AutoList.cpp" />
     <ClCompile Include="functions.cpp" />
     <ClCompile Include="GasStation.cpp" />
+    <ClCompile Include="PartList.cpp" />
+    <ClCompile Include="PartsScreen.cpp" />
+    <ClCompile Include="SparePart.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ads.h" />
