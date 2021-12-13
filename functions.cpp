@@ -8,6 +8,8 @@ int menu() {
     PartList* ptrPartsList = new PartList();
     system("cls");
    MyMainMenu(*ptrAutoList, *ptrPartsList);
+    ptrAutoList->~AutoList();//
+    ptrPartsList->~PartList();//
     return 1;
 }
 int WorkReportScreen(AutoList& ptrAutoList, PartList& ptrPartList)
