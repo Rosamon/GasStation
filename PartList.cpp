@@ -83,7 +83,7 @@ int PartList::DeleteParts(Str Name, int Number)
     return 1;
 }
 
-// Выводит на экран список 
+// Выводит на экран список
 int PartList::ShowAllList()
 {
     pass(10);
@@ -122,5 +122,60 @@ int PartList::ShowAllList()
             out"\n";
         }
     }
+    return 0;
+}
+int PartList::MakeReport()
+{
+    pass(10);
+    out "Name ";
+    pass(10);
+    out "| Brand ";
+    pass(10);
+    out "| Series ";
+    pass(10);
+    out "| Amount ";
+    pass(10);
+    out "| Number ";
+    pass(10);
+    out "| Condition ";
+    pass(15);
+    out "| Proceeds  |";
+    out"\n";
+    int TotalIncome = 0;
+    if (PtrPartList.empty()) // если список жильцов пуст
+    {
+        out "Cars is out!\n"; // выводим запись, что он пуст)
+        return 1;
+    }
+    else
+    {
+        iter = PtrPartList.begin();
+        while (iter != PtrPartList.end()) // вывод пока не конец
+        {
+            pass(10);
+            out(*iter)->GetName();//
+            pass(10);
+            out(*iter)->GetBrand();//
+            pass(10);
+            out(*iter)->GetSeries(); //
+            pass(10);
+            out(*iter)->GetAmount();//
+            pass(10);
+            out(*iter)->GetNumber();//
+            pass(10);
+            out(*iter)->GetCondition();//
+            pass(10);
+            out(*iter)->GetBuyCost();
+            int Buff = (*iter)->GetDiference();
+            pass(10);
+            out Buff;
+            TotalIncome += Buff;
+            *iter++;
+            out"\n";
+        }
+    }
+    out "\n\n";
+    pass(40);
+    out "Total income: " << TotalIncome;
     return 0;
 }
