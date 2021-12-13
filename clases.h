@@ -14,6 +14,8 @@ public:
 	Str GetYear() { return YearOfIssue; };// получить год выпуска авто
 	Str GetCondition() { return Condition; };//Поучить статус авто
 	void SetCondition(Str Cond) { Condition = Cond; };
+	int ShowAnAutoCost() { return SellCost - BuyCost; };
+	int GetBuycost() { return BuyCost; };
 private:
 	Str Brand;// Марка
 	Str Series;// серия/модель, может быть как цифрой так и названием
@@ -32,9 +34,9 @@ public:
 	~AutoList();
 	int insertAuto(AutoExample*);// Позволяет добавть авто в список
 	int ShowAutoList();// Показыает список авто
-	int ShowAnAutoCost(Str, Str);// Разница отдельной марки
 	int DeleteCar(Str, Str);// удалить из списка выбранное авто
 	int SellCar(Str, Str);// Поменять стутс авто из списка
+	int MakeReport();
 private:
 	std::list <AutoExample*> PtrAutoList; // указатели на класс AutoExample
 	std::list <AutoExample*>::iterator iter; //итератор
@@ -71,6 +73,7 @@ public:
 	Str GetCondition() { return Condition; };//Поучить статус авто
 	int GetAmount() { return PartAmount; };// получить количество запчатсей на складе
 	int GetNumber() { return PartNumber; };
+	int GetBuyCost() { return BuyCost; };
 private:
 	Str Brand;// Марка авто
 	Str Series;// серия/модель, может быть как цифрой так и названием
@@ -88,12 +91,13 @@ class PartList
 {
 public:
 	~PartList();
-	int insertParts(SparePart*);// Позволяет добавть авто в список
+	int insertParts(SparePart*);// Позволяет добавть в список
 	int ShowAllList();// Показыает весь список
 	int DeleteParts(Str, int);// удалить из списка выбранные запчасти
 	int SellParts(Str, int);//продажа запчастей
+	int MakeReport();
 private:
-	std::list <SparePart*> PtrPartList; // указатели на класс AutoExample
+	std::list <SparePart*> PtrPartList; // указатели на класс 
 	std::list <SparePart*>::iterator iter; //итератор
 };
 

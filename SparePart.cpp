@@ -2,7 +2,7 @@
 //класс SparePart
 #include "clases.h" // включение описания класса
 #include "ads.h"
-//Конструктор задает значения марки, серии, количество и стоимость купленных авто
+//Конструктор задает значения марки, серии, количество и стоимость...
 SparePart::SparePart(Str PartName, Str BrandBought, Str SeriesBought, Str Condition, int Cost, int Amount, int Number) :
     PartName(PartName), Brand(BrandBought), Series(SeriesBought), Condition(Condition), BuyCost(Cost), PartAmount(Amount), PartNumber(Number)
 {

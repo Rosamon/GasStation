@@ -14,10 +14,10 @@ PartList::~PartList()
 
 }
 
-//Вставка в список нового авто, в качестве аргумента принимает класс
+//Вставка в список, в качестве аргумента принимает класс
 int PartList::insertParts(SparePart* PtrSparePart)
 {
-    PtrPartList.push_back(PtrSparePart); // вставка нового авто в список
+    PtrPartList.push_back(PtrSparePart); // вставка в список
     return 0;
 }
 
@@ -144,7 +144,7 @@ int PartList::MakeReport()
     int TotalIncome = 0;
     if (PtrPartList.empty()) // если список жильцов пуст
     {
-        out "Cars is out!\n"; // выводим запись, что он пуст)
+        out "List is out!\n"; // выводим запись, что он пуст)
         return 1;
     }
     else
